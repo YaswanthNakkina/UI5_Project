@@ -1,0 +1,15 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="xyz.x.controller.App">
+	<App id="idApp">
+		<pages>
+			<SplitApp id="idSplitApp">
+				<masterPages>
+					<mvc:XMLView viewName="xyz.x.view.view1"/>
+				</masterPages>
+				<detailPages>
+					<mvc:XMLView viewName="xyz.x.view.view2"/>
+				</detailPages>
+			</SplitApp>
+		</pages>
+	</App>
+</mvc:View>

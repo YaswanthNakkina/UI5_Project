@@ -1,0 +1,88 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tab="sap.ui.table" controllerName="xyz.x.controller.view2" displayBlock="true">
+	<Page title="view2" navButtonPress="previous">
+		<headerContent>
+			<Toolbar>
+				<SearchField search="onSearch1" liveChange="onSearch1"></SearchField>
+			</Toolbar>
+		</headerContent>
+		<content>
+			<ObjectHeader icon="{image}" title="{fruitName}" intro="{healthBenfit}"></ObjectHeader>
+			<IconTabBar>
+				<items>
+					<IconTabFilter text="Info" icon="sap-icon://hint">
+						<f:SimpleForm>
+							<f:content>
+								<Label text="Color"></Label>
+								<Text text="{color}"></Text>
+								<Label text="Price"></Label>
+								<Text text="{price} {priceQty}"></Text>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter text="city" icon="sap-icon://search">
+						<f:SimpleForm editable="true">
+							<f:content>
+								<Label text="City"></Label>
+								<Select width="200px" items="{/City}">
+									<items>
+										<core:Item key="{cityName}" text="{cityName}"></core:Item>
+									</items>
+								</Select>
+								<Label text="City"></Label>
+								<ComboBox items="{/City}" width="200px">
+									<items>
+										<core:Item key="{cityName}" text="{cityName}"></core:Item>
+									</items>
+								</ComboBox>
+								<Label text="City"></Label>
+								<MultiComboBox width="200px" items="{/City}">
+									<items>
+										<core:Item key="{cityName}" text="{cityName}"></core:Item>
+									</items>
+								</MultiComboBox>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter text="supplier" icon="sap-icon://supplier">
+						<Table items="{/Supplier}" mode="SingleSelectLeft">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button icon="sap-icon://filter" press="onFilter"></Button>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Label text="SupplierName"></Label>
+								</Column>
+								<Column>
+									<Label text="City"></Label>
+								</Column>
+								<Column>
+									<Label text="SinceWhen"></Label>
+								</Column>
+							</columns>
+							<items >
+								<ColumnListItem type="Navigation" press="onSupplierSelect">
+									<cells>
+										<Input value="{supName}"></Input>
+										<Input id="idCity" value="{supCity}" showValueHelp="true" valueHelpRequest="onRequest"></Input>
+										<Text text="{Since}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Approve" type="Accept" press="onApprove"></Button>
+				<Button text="Dis-Approve" type="Reject"></Button>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

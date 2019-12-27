@@ -1,0 +1,48 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tab="sap.ui.table" controllerName="xyz.x.controller.view1" displayBlock="true">
+	<Page title="view1">
+		<headerContent>
+			<Button icon="sap-icon://action" press="next"></Button>
+		</headerContent>
+		<subHeader>
+			<Toolbar>
+				<SearchField search="onSearch" liveChange="onSearch" enableSuggestions="true" suggestionItems="{/fruits}" suggest="onSuggest" id="fruitsInput">
+					<suggestionItems>
+						<SuggestionItem  text="{fruitName}"></SuggestionItem>
+					</suggestionItems>
+				</SearchField>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List id="idFruits" items="{/fruits}" mode="SingleSelectMaster" selectionChange="onSelectItem">
+				<items>
+					<!--<DisplayListItem label="Apple" value="120 INR"></DisplayListItem>-->
+					<!--<ActionListItem text="Apple" press="orange" ></ActionListItem>-->
+					<!--<ColumnListItem></ColumnListItem>-->
+					<!--<CustomListItem>-->
+					<!--	<content>-->
+					<!--		<Button text="Orange" press="orange"></Button>-->
+					<!--	</content>-->
+					<!--</CustomListItem>-->
+					<ObjectListItem
+						icon="{image}"
+						intro="{healthBenfit}" number="{price}" numberUnit="{priceQty}." title="{fruitName}">
+						<attributes>
+							<ObjectAttribute text="{color}" title="color"></ObjectAttribute>
+						</attributes>
+					</ObjectListItem>
+					<!--<InputListItem>-->
+					<!--	<HBox>-->
+					<!--		<Text text="PineApple"></Text>-->
+					<!--		<Input width="100px"></Input>-->
+					<!--	</HBox>-->
+					<!--</InputListItem>-->
+					<!--<FeedListItem-->
+					<!--	icon="data:image/jpeg;base64,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"-->
+					<!--	sender="Yash" text=" Apple Good for health"></FeedListItem>-->
+				
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>
